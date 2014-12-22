@@ -1,0 +1,24 @@
+{
+  "name": "InokApp",
+  "version": "0.2.0",
+  "dependencies": {
+    "lodash-node": "^2.4.1",
+    "express": "^4.9.8",
+    "serve-static": "^1.7.0",
+    "serve-favicon": "^2.1.6",
+    "morgan": "^1.4.0",
+    "compression": "^1.2.0",
+    "socket.io": "^1.1.x",
+    "async": "^0.9.x",
+    "mongoskin": "^1.4.4",
+    "express-jwt": "^0.4.x",
+    "socketio-jwt": "^2.x",
+    "jsonwebtoken": "~1.1.x"
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": "~0.10.x",
+    "npm": "~1.x.x"
+  }
+}
