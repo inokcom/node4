@@ -1,11 +1,12 @@
 {
-  "name": "InokApp",
-  "version": "0.2.0",
+  "name": "InokApp Beta",
+  "version": "0.3.0",
   "dependencies": {
     "mongodb": "^2",
     "bcrypt": "latest",
-    "node-uuid": "latest",
-    "node-logentries": "latest",
+    "body-parser": "latest",
+    "le_node": "latest",
+    "moment": "latest",
     "toobusy": "latest",
     "lodash-node": "latest",
     "express": "latest",
