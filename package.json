@@ -1,5 +1,5 @@
 {
-  "name": "InokApp Beta",
+  "name": "InokAppBeta",
   "version": "0.3.0",
   "dependencies": {
     "mongodb": "^2",
