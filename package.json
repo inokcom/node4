@@ -14,7 +14,7 @@
       "async": "latest",
       "mongoskin": "latest",   
       "nano": "latest",
-      "ndemailer": "latest",
+      "nodemailer": "latest",
       "nodemailer-smtp-transport": "^0.1.13",
       "nodemailer-wellknown": "^0.1.4",
       "redis": "latest",
