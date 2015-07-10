@@ -23,7 +23,13 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm install pm2 -g \
+	&& pm2 install pm2-server-monit \
+	&& pm2 install pm2-logrotate \
+	&& pm2 set pm2-logrotate:max_size 100000 \
+	&& pm2 set pm2-logrotate:interval 1 \
 	&& npm cache clear
+
+# https://github.com/pm2-hive/pm2-logrotate
 	
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
