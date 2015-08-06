@@ -1,9 +1,10 @@
 {
-  "name": "InokAppBeta",
-  "version": "0.3.1",
+  "name": "InokApp",
+  "version": "0.4.0",
   "author": "Sergei Diatlov <sdiatlov@gmail.com>",
   "dependencies": {
     "async": "latest",
+    "rollbar": "latest",
     "bcryptjs": "^2.1.0",
     "bluebird": "latest",
     "body-parser": "latest",
