@@ -16,6 +16,7 @@
     "nodemailer": "latest",
     "nodemailer-smtp-transport": "latest",
     "nodemailer-wellknown": "latest",
+    "pmx": "latest",
     "qs": "latest",
     "request-promise": "latest",
     "serve-favicon": "latest",
