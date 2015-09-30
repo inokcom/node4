@@ -24,13 +24,11 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm install pm2 -g \
 	&& pm2 install pm2-server-monit \
-	&& pm2 install pm2-webshell \
 	&& pm2 install pm2-logrotate \
 	&& pm2 install pm2-redis \
-	&& pm2 set pm2-logrotate:max_size 100000 \
-	&& pm2 set pm2-logrotate:interval 1 \
 	&& npm cache clear
 
+# broken node-gyp  && pm2 install pm2-webshell \
 # https://github.com/pm2-hive/pm2-logrotate
 # https://github.com/pm2-hive/pm2-webshell
 # https://keymetrics.io/2015/06/10/pm2-ssh-expose-a-fully-capable-terminal-within-your-browser/
