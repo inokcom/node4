@@ -45,5 +45,5 @@ RUN cd /tmp && npm install \
 VOLUME ["/opt/node/app"]
 WORKDIR /opt/node/
 
-CMD ["/start"]
+CMD ["./start"]
 
