@@ -10,7 +10,7 @@ RUN apt-get update \
 
 # verify gpg and sha256: http://nodejs.org/dist/v4.1.1/SHASUMS256.txt.asc
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
-RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 7937DFD2AB06298B2293C3187D33FF9D0246406D 114F43EE0176B71C7BC219DD50A3051F888C628D
+RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
 ENV NODE_VERSION 4.1.1
 ENV NPM_VERSION 2.14.4
