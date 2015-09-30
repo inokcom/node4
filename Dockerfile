@@ -45,5 +45,6 @@ RUN cd /tmp && npm install \
 VOLUME ["/opt/node/app"]
 WORKDIR /opt/node/
 
-CMD ["./start"]
+CMD ["start"]
+# CMD [ "pm2","--no-daemon","start","/opt/node/app/processes.json" ]
 
