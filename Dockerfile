@@ -26,6 +26,7 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& pm2 install pm2-server-monit \
 	&& pm2 install pm2-webshell \
 	&& pm2 install pm2-logrotate \
+	&& pm2 install pm2-redis \
 	&& pm2 set pm2-logrotate:max_size 100000 \
 	&& pm2 set pm2-logrotate:interval 1 \
 	&& npm cache clear
