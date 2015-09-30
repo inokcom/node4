@@ -8,12 +8,12 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# verify gpg and sha256: http://nodejs.org/dist/v0.10.31/SHASUMS256.txt.asc
+# verify gpg and sha256: http://nodejs.org/dist/v4.1.1/SHASUMS256.txt.asc
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 7937DFD2AB06298B2293C3187D33FF9D0246406D 114F43EE0176B71C7BC219DD50A3051F888C628D
 
-ENV NODE_VERSION 0.10.38
-ENV NPM_VERSION 2.7.3
+ENV NODE_VERSION 4.1.1
+ENV NPM_VERSION 2.14.4
 
 RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
 	&& curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -24,12 +24,16 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm install pm2 -g \
 	&& pm2 install pm2-server-monit \
+	&& pm2 install pm2-webshell \
 	&& pm2 install pm2-logrotate \
 	&& pm2 set pm2-logrotate:max_size 100000 \
 	&& pm2 set pm2-logrotate:interval 1 \
 	&& npm cache clear
 
 # https://github.com/pm2-hive/pm2-logrotate
+# https://github.com/pm2-hive/pm2-webshell
+# https://keymetrics.io/2015/06/10/pm2-ssh-expose-a-fully-capable-terminal-within-your-browser/
+
 	
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
@@ -42,5 +46,5 @@ RUN cd /tmp && npm install \
 VOLUME ["/opt/node/app"]
 WORKDIR /opt/node/
 
-EXPOSE  4000
-CMD [ "pm2","--no-daemon","start","/opt/node/app/processes.json" ]
+CMD ["/start"]
+
