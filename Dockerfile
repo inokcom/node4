@@ -46,5 +46,5 @@ VOLUME ["/opt/node/app"]
 WORKDIR /opt/node/
 
 #CMD ["start"]
-CMD ["./start"]
+CMD ["./app/start"]
 
