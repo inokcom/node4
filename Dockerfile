@@ -13,10 +13,10 @@ RUN apt-get update \
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
 ENV NODE_VERSION 4.2.1
-ENV NPM_VERSION 2.14.4
+ENV NPM_VERSION 2.14.7
 
-RUN curl -SLO "http://nodejs.org/download/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
-	&& curl -SLO "http://nodejs.org/download/v$NODE_VERSION/SHASUMS256.txt.asc" \
+RUN curl -SLO "http://nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+	&& curl -SLO "http://nodejs.org/download/release/v$NODE_VERSION/SHASUMS256.txt.asc" \
 	&& gpg --verify SHASUMS256.txt.asc \
 	&& grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
 	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
