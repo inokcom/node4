@@ -13,8 +13,8 @@ RUN apt-get update \
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
 ENV NODE_VERSION 4.2.1
-ENV NPM_VERSION 2.14.7
-# download dist
+ENV NPM_VERSION 2.14.4
+
 RUN curl -SLO "http://nodejs.org/download/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
 	&& curl -SLO "http://nodejs.org/download/v$NODE_VERSION/SHASUMS256.txt.asc" \
 	&& gpg --verify SHASUMS256.txt.asc \
@@ -25,8 +25,10 @@ RUN curl -SLO "http://nodejs.org/download/v$NODE_VERSION/node-v$NODE_VERSION-lin
 	&& npm install pm2 -g \
 	&& pm2 install pm2-server-monit \
 	&& pm2 install pm2-logrotate \
-#	&& pm2 install pm2-redis \
 	&& npm cache clear
+
+# download dist
+# 	&& pm2 install pm2-redis \
 
 # broken node-gyp  && pm2 install pm2-webshell \
 # https://github.com/pm2-hive/pm2-logrotate
