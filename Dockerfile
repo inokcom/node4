@@ -12,8 +12,8 @@ RUN apt-get update \
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
-ENV NODE_VERSION 4.1.1
-ENV NPM_VERSION 2.14.4
+ENV NODE_VERSION 4.2.1
+ENV NPM_VERSION 2.14.7
 
 RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
 	&& curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -25,7 +25,7 @@ RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x
 	&& npm install pm2 -g \
 	&& pm2 install pm2-server-monit \
 	&& pm2 install pm2-logrotate \
-	&& pm2 install pm2-redis \
+#	&& pm2 install pm2-redis \
 	&& npm cache clear
 
 # broken node-gyp  && pm2 install pm2-webshell \
