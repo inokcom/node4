@@ -12,8 +12,8 @@ RUN apt-get update \
 # gpg: aka "Timothy J Fontaine (Work) <tj.fontaine@joyent.com>"
 # RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
-ENV NODE_VERSION 4.2.1
-ENV NPM_VERSION 2.14.7
+# ENV NODE_VERSION 4.2.1
+# ENV NPM_VERSION 2.14.7
 
 # https://github.com/nodejs/docker-node/blob/04df8682a438b0ced8f530ab562f5197595e0cbb/4.2/Dockerfile
 # gpg keys listed at https://github.com/nodejs/node
@@ -52,7 +52,6 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 # https://github.com/pm2-hive/pm2-webshell
 # https://keymetrics.io/2015/06/10/pm2-ssh-expose-a-fully-capable-terminal-within-your-browser/
 
-	
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
 ADD package.json /tmp/package.json
